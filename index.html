@@ -28,6 +28,11 @@
   </head>
   <body>
     <div id="app" class="container">
+
+      <header class="mb-5 row ml-1">
+        <img src="./fynd-logo.webp"/ style="height: 10vh;" class="col-xs-2">
+        
+      </header>
       <input v-model="trackerId" class="form-control my-3" placeholder="Tracker ID or Jira Link" />
       <input v-model="hours" class="form-control my-3" type="number" placeholder="Hours involved" />
       <input v-model="donePercentage" class="form-control my-3" type="number" max="100" min="0" placeholder="Done %" />
