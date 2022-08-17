@@ -26,8 +26,12 @@ var app = new Vue({
         const textToCopy = document.querySelector("#commitLine").textContent;
         await navigator.clipboard.writeText(textToCopy);
         this.isCopied = true;
+        const itemToStore = this.extractTrackerId(this.trackerId);
 
-        lsPrependItemToArray("lastTickets", this.extractTrackerId(this.trackerId));
+        const lsItems = lsLoad("lastTickets");
+        if (lsItems && Array.isArray(lsItems) && !lsItems.includes(itemToStore)) {
+          lsPrependItemToArray("lastTickets", itemToStore);
+        }
 
         this.renderTickets();
       } catch (e) {
