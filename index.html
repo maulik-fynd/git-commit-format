@@ -24,6 +24,10 @@
       body {
         padding: 5rem;
       }
+      code {
+        color: #03919b !important;
+      }
+
     </style>
   </head>
   <body>
@@ -43,7 +47,12 @@
           <i class="fa-regular fa-copy" :class="{'fa-solid': isCopied}"> </i>
         </button>
 
-        <p id="commitLine" class="d-block my-2 font-weight-bold h3">ID: {{getTrackerId}}; HOURS: {{hours}}; DONE: {{donePercentage}}; {{commitMessage}}</p>
+        
+          <code id="commitLine" class="d-block my-2 font-weight-bold h3">
+            git add .; 
+            git commit -m "ID: {{getTrackerId}}; HOURS: {{hours}}; DONE: {{donePercentage}}; {{commitMessage}}";
+          </code>
+        
 
         <span v-if="isCopied" class="text-success">Copied</span>
       </p>

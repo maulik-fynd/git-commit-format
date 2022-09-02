@@ -41,7 +41,8 @@ var app = new Vue({
     },
 
     renderTickets() {
-      this.lastCopiedItems = lsLoad("lastTickets");
+      this.lastCopiedItems = lsLoad("lastTickets") || [];
+      if (this.lastCopiedItems.length === 0) lsStore("lastTickets", this.lastCopiedItems);
 
       // localStorage clean up process
       if (this.lastCopiedItems.length > MAX_ITEMS_STORE) {
